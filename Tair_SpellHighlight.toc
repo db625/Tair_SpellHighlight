@@ -4,5 +4,6 @@
 ## Notes: Adds a variety of useful spell highlights for Classic.
 ## Version: 0.1
 
-Tair_SpellHighlights_Paladin.lua
 LibButtonGlow-1.0\LibButtonGlow-1.0.lua
+Tair_SpellHighlight.lua
+Tair_SpellHighlight_Paladin.lua
