@@ -48,7 +48,6 @@ end
 ---------------------------------------------
 
 function addon.Tair_SpellHighlight_Start(searchName)
-	-- Blizzard UI
 	if not IsAddOnLoaded("ElvUI") and not IsAddOnLoaded("AzeriteUI") then
 		for _, barName in pairs(ActionBars) do
 			for i = 1, 12 do
@@ -58,7 +57,8 @@ function addon.Tair_SpellHighlight_Start(searchName)
 				if HasAction(slot) then
 					local actionType, id, _, actionName = GetActionInfo(slot)
 					if actionType == "macro" then
-						actionName, _, id = GetMacroSpell(id)
+						local macroSpellId = GetMacroSpell(id)
+						actionName = GetSpellInfo(macroSpellId)
 					elseif actionType == "item" then
 						actionName = GetItemInfo(id)
 					elseif actionType == "spell" then
@@ -72,8 +72,6 @@ function addon.Tair_SpellHighlight_Start(searchName)
 			end
 		end
 	end
-	-- End Blizzard UI
-	-- ElvUI
 	if IsAddOnLoaded("ElvUI") then
 		for _, barName in pairs(ActionBars) do
 			for i = 1, 12 do
@@ -84,7 +82,8 @@ function addon.Tair_SpellHighlight_Start(searchName)
 					local slot = button:GetAttribute('action')
 					local actionType, id, actionName = GetActionInfo(slot)
 					if actionType == "macro" then
-						actionName, _, id = GetMacroSpell(id)
+						local macroSpellId = GetMacroSpell(id)
+						actionName = GetSpellInfo(macroSpellId)
 					elseif actionType == "item" then
 						actionName = GetItemInfo(id)
 					elseif actionType == "spell" then
@@ -98,7 +97,6 @@ function addon.Tair_SpellHighlight_Start(searchName)
 			end
 		end
 	end
-	-- End ElvUI
 end
 
 ---------------------------------------------
@@ -115,7 +113,8 @@ function addon.Tair_SpellHighlight_End(searchName)
 				if HasAction(slot) then
 					local actionType, id, _, actionName = GetActionInfo(slot)
 					if actionType == "macro" then
-						actionName, _, id = GetMacroSpell(id)
+						local macroSpellId = GetMacroSpell(id)
+						actionName = GetSpellInfo(macroSpellId)
 					elseif actionType == "item" then
 						actionName = GetItemInfo(id)
 					elseif actionType == "spell" then
@@ -139,7 +138,8 @@ function addon.Tair_SpellHighlight_End(searchName)
 					local slot = button:GetAttribute('action')
 					local actionType, id, actionName = GetActionInfo(slot)
 					if actionType == "macro" then
-						actionName, _, id = GetMacroSpell(id)
+						local macroSpellId = GetMacroSpell(id)
+						actionName = GetSpellInfo(macroSpellId)
 					elseif actionType == "item" then
 						actionName = GetItemInfo(id)
 					elseif actionType == "spell" then

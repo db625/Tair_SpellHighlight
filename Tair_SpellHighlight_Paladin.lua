@@ -8,6 +8,10 @@
 
 local name,addon=...;
 
+local ActiveHighlight_Seals
+local ActiveHighlight_Purify
+local ActiveHighlight_Judgement
+
 ---------------------------------------------
 --
 -- Events
@@ -20,9 +24,9 @@ if UnitClass("player") == "Paladin" then
 		-- PLAYER_ENTERING_WORLD
 		---------------------------------------------
 		if event == "PLAYER_ENTERING_WORLD" then
-			local ActiveHighlight_Seals = false;
-			local ActiveHighlight_Purify = false;
-			local ActiveHighlight_Judgement = false;
+			ActiveHighlight_Seals = false;
+			ActiveHighlight_Purify = false;
+			ActiveHighlight_Judgement = false;
 		end
 		-- END PLAYER_ENTERING_WORLD
 		---------------------------------------------
@@ -144,16 +148,13 @@ function Tair_Paladin_CheckPurify()
 	    if debuffType == "Disease" or debuffType == "Poison" then
 			NeedPurify = true;
 		end
-		if NeedPurify ~= true then
-			NeedPurify = false;
-		end
 	end
-	if NeedPurify == true and ActiveHighlight_Purify == false then
-		ActiveHighlight_Purify = true;
+	if NeedPurify == true and not ActiveHighlight_Purify then
 		addon.Tair_SpellHighlight_Start("Purify")
+		ActiveHighlight_Purify = true;
 	elseif NeedPurify == false then
-		ActiveHighlight_Purify = false;
 		addon.Tair_SpellHighlight_End("Purify")
+		ActiveHighlight_Purify = false;
 	end
 end
 
