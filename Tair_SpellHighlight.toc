@@ -7,3 +7,4 @@
 LibButtonGlow-1.0\LibButtonGlow-1.0.lua
 Tair_SpellHighlight.lua
 Tair_SpellHighlight_Paladin.lua
+Tair_SpellHighlight_Shaman.lua

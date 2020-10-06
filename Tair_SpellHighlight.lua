@@ -21,6 +21,7 @@ local name,addon=...;
 addon.EventFrame = CreateFrame("Frame")
 addon.EventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 addon.EventFrame:RegisterEvent("UNIT_AURA")
+addon.EventFrame:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
 addon.EventFrame:RegisterEvent("PLAYER_REGEN_DISABLED")
 addon.EventFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
 addon.EventFrame:RegisterEvent("PLAYER_TARGET_CHANGED")
